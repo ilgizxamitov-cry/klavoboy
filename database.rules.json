@@ -1,0 +1,15 @@
+{
+  "rules": {
+    "rooms": {
+      "$room": {
+        "peers": {
+          ".read": "$room.matches(/^kb-[0-9]{4}$/)",
+          "$peer": {
+            ".write": "$room.matches(/^kb-[0-9]{4}$/) && $peer.matches(/^[a-z0-9]{6,20}$/)",
+            ".validate": "newData.hasChild('t')"
+          }
+        }
+      }
+    }
+  }
+}
